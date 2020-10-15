@@ -19,13 +19,7 @@ const ShowWok = () => {
                 <div className="col-4  pt-5"   >
                         <img src={carousel3} alt="" style={{height:'200px', width:'80%'}}/>
                 </div>
-               
-                
-               
-              
-              
-         
-           
+        
             </div>
             
         </section>

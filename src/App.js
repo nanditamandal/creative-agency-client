@@ -11,7 +11,7 @@ import Home from './component/Home/Home/Home';
 
 import Login from './component/Login/Login';
 
-import OrderHome from './component/Order/OrderHome/OrderHome';
+import OrderHome from './component/DashBoard/OrderHome/OrderHome';
 import PrivateRoute from './component/Login/PrivateRoute';
 
 export const UserContext = createContext();

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 
 import {
   BrowserRouter as Router,
@@ -16,20 +16,25 @@ import Order from '../Order/Order';
 import Review from '../Review/Review';
 import ServiceList from '../ServiceList/ServiceList';
 import './OrderHome.css';
+import { UserContext } from '../../../App';
 
 const OrderHome = () => {
+
+
     let page;
     const {name} =useParams();
     const [pageName, setPageName]= useState('order');
+
+    const [logInUser, setLogInUser]= useContext(UserContext);
    
         if (pageName === 'order') {
-             page= <Order></Order>
+             page= <Order pageName={name}></Order>
         }
         if (pageName === 'review') {
             page= <Review></Review>
        }
        if (pageName === 'service') {
-         page=   <ServiceList></ServiceList>
+         page= <ServiceList email={logInUser.email}></ServiceList>
         }
        
      
