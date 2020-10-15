@@ -28,9 +28,8 @@ const Login = () => {
         firebase.auth().signInWithPopup(provider).then(function (result) {
           const { name, email, picture } = result.additionalUserInfo.profile
           const user = {  name, email, picture }
-          console.log(user)
-          setLogInUser(user);
-          history.replace(from);
+          checkUser(user);
+         
           //storeAuthToken();
    
           
@@ -38,6 +37,27 @@ const Login = () => {
           const errorMessage = error.message;
           console.log(errorMessage);
         });
+
+    }
+    const checkUser=(user)=>{
+        const userEmail =user.email;
+        fetch(`http://localhost:5000/checkUser/${userEmail}`)
+        .then(res=>res.json())
+        .then(data=>{
+            if(data){
+                user={...user, userType: 'admin'}
+                setLogInUser(user);
+                console.log(user)
+                history.replace(from);
+            }
+            else{
+                user={...user, userType: 'customer'}
+                setLogInUser(user);
+                history.replace(from);
+
+            }
+
+        })
 
     }
     const storeAuthToken=()=>{
