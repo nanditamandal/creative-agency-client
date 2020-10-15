@@ -22,23 +22,14 @@ const OrderHome = () => {
 
 
     let page;
-    const {name} =useParams();
+    const {serviceName} =useParams();
     const [pageName, setPageName]= useState('order');
 
     const [logInUser, setLogInUser]= useContext(UserContext);
    
-        if (pageName === 'order') {
-             page= <Order pageName={name}></Order>
-        }
-        if (pageName === 'review') {
-            page= <Review></Review>
-       }
-       if (pageName === 'service') {
-         page= <ServiceList email={logInUser.email}></ServiceList>
-        }
        
      
-        console.log(pageName)
+        console.log(serviceName)
             
         
     return (
@@ -73,7 +64,15 @@ const OrderHome = () => {
                     </div>
                 </div>
                 <div className="col-md-7 d-flex justify-content-center">
-                  {page}
+                  {
+                      (pageName==="order") && <Order serviceName={serviceName}></Order>
+                  }
+                   {
+                      (pageName==="service") && <ServiceList ></ServiceList>
+                  }
+                   {
+                      (pageName==="review") &&<Review></Review>
+                  }
                
                 </div>
                 

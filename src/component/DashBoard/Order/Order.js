@@ -4,25 +4,17 @@ import { UserContext } from '../../../App';
 import { useForm } from "react-hook-form";
 
 
-const Order = ({pageName}) => {
-    const {id} =useParams();
-  //  const [events , setEvent] =useState([]);
+const Order = (props) => {
+    
+    const {serviceName}=props;
+    console.log(serviceName)
+   
     const [logInUser, setLogInUser]= useContext(UserContext);
-    const history =useHistory();
-    // useEffect(()=>{
-    //     fetch('https://arcane-stream-85423.herokuapp.com/findEven/'+id)
-    //     .then(res=>res.json())
-    //     .then(data=>{
-    //         setEvent(data);
 
-    //     })
-    // }, [id])
-    // console.log(events);
-  
-
+    
     const { register, handleSubmit, errors, control } = useForm();
     const onSubmit = data => {
-     const eventDetails ={ ...data} ;
+    
   
      console.log(data);
     fetch('http://localhost:5000/addOrder',{
@@ -51,7 +43,7 @@ const Order = ({pageName}) => {
                            <input name="email" className="form-control"  ref={register} defaultValue={logInUser.email}/>
                        </div>
                        <div className="form-group">
-                           <input  name="work"className="form-control"  ref={register} defaultValue={pageName}/>
+                           <input  name="work"className="form-control"  ref={register} defaultValue={serviceName}/>
                        </div>
                        <div className="form-group">
                            <textarea name="message" className="form-control"  ref={register}  id="" cols="30" rows="10" placeholder="Message *" ></textarea>

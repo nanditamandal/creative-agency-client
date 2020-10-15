@@ -32,25 +32,27 @@ const Login = () => {
           setLogInUser(user);
           history.replace(from);
           //storeAuthToken();
+   
+          
         }).catch(function (error) {
           const errorMessage = error.message;
           console.log(errorMessage);
         });
 
     }
-    // const saveAuthToken=()=>{
-    //     firebase.auth().currentUser.getIdToken(/* forceRefresh */ true)
-    //     .then(function(idToken) {
-    //         sessionStorage.setItem('token', idToken);
-    //         history.replace(from);
-    //         console.log(idToken);
-            
-    //       })
-    //       .catch(function(error) {
+    const storeAuthToken=()=>{
+        firebase.auth().currentUser.getIdToken( true)
+        .then(function(idToken) {
+            sessionStorage.setItem('token', idToken);
            
-    //       });
+            console.log(idToken);
+            
+          })
+          .catch(function(error) {
+           
+          });
 
-    // }
+    }
 
     return (
         <div className="login-page container">
