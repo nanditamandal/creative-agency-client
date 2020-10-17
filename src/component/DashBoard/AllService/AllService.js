@@ -49,9 +49,9 @@ const AllService = () => {
 
     }
     return (
-        <div>
+        <div className="mt-5">
             <table className="table">
-                <thead className="thead-dark">
+                <thead className="thead-light ">
                     <tr>
                
                     <th scope="col">Name</th>

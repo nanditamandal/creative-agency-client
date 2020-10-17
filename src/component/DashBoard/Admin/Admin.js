@@ -28,12 +28,13 @@ const Admin = () => {
         <form onSubmit={handleSubmit(onSubmit)}>
        
                    
-                  <div className="form-group">
-                      <input name="email" className="form-control"  ref={register} />
+                  <div className="form-group pt-5">
+                  <label for="email">Email address</label>
+                      <input name="email" id="email" className="form-control"  ref={register} />
                   </div>
                
                   <div className="form-group text-center">
-                        <input type="submit" className="btn btn-dark"/>  
+                        <input type="submit" className="btn btn-primary"/>  
                   </div>
            
          

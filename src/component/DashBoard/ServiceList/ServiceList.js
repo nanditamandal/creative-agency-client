@@ -26,14 +26,14 @@ const ServiceList = () => {
 
     return (
         
-           <div className="row">
+           <div className="row mt-5">
                {
                  order && order.map(od=> 
                     
             
                  <div className="col-md-5 mb-5 text-center ">
          
-                    <div className="card service"  >
+                    <div className="card"  >
                         <div className="card-body ">
                             <img style={{height: '50px'}} src={od.img} alt="" />
                            

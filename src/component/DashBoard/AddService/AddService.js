@@ -56,14 +56,18 @@ const AddService = () => {
         
     }
     return (
-        <section>
+        <section className="mt-5">
                     
              <form onSubmit={handleSubmit(onSubmit)}>
             
                         <div className="form-group">
+                        <label >Service title</label>
+
                            <input  name="name" className="form-control"   placeholder="Service Title" ref={register({ required: true })}/>
                        </div>
                        <div className="form-group">
+                       <label >Description</label>
+
                            <textarea name="details" className="form-control"  ref={register}  id="" cols="30" rows="10" placeholder="Enter designation *" ></textarea>
                        </div>
                        
@@ -73,7 +77,7 @@ const AddService = () => {
                        </div>
                     
                        <div className="form-group text-center">
-                             <input type="submit"className="btn btn-dark"/>  
+                             <input type="submit"className="btn btn-primary"/>  
                        </div>  
             </form>
         </section>

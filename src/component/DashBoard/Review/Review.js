@@ -23,14 +23,14 @@ const Review = () => {
 
     }
     return (
-         <section>
+         <section className="mt-5">
         <form onSubmit={handleSubmit(onSubmit)}>
        
                    <div className="form-group">
                       <input  name="name" className="form-control"   placeholder="Your name/ company name" ref={register({ required: true })}/>
                   </div>
                   <div className="form-group">
-                      <input name="designation" className="form-control"  ref={register} />
+                      <input name="designation" className="form-control" placeholder="company Name, designation" ref={register} />
                   </div>
                  
                   <div className="form-group">

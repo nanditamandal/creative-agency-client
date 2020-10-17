@@ -104,10 +104,11 @@ const OrderHome = () => {
                         </div>
                     </div>
                 </div>
-                <div className="col-md-7 d-flex justify-content-center">
-                    <div>{logInUser.email}
+                <div className="col-md-7 d-flex flex-column justify-content-center">
+                    <div className="d-flex flex-row mb-5 ">
+                        
                         {logInUser.name}
-                        <img src= {logInUser.picture} style={{height: "100px", width:"100px"}} alt=""/>
+                        <img src= {logInUser.picture} style={{height: "60px", width:"70px", borderRadius:"50%"}} alt=""/>
                        
                     
                     </div>

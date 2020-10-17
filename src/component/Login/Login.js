@@ -57,39 +57,26 @@ const Login = () => {
       
 
     }
-    // const storeAuthToken=()=>{
-    //     firebase.auth().currentUser.getIdToken( true)
-    //     .then(function(idToken) {
-    //         sessionStorage.setItem('token', idToken);
-           
-    //         console.log(idToken);
-            
-    //       })
-    //       .catch(function(error) {
-           
-    //       });
+  
 
-    // }
 
     return (
         <div className="login-page container">
-            <div className=" d-flex flex-column" style={{login}}>
+            <div className="justify-content-center mt-5 pt-5" style={{login}}>
                 <div style={{height:'100px'}}>
                     <img src={logo} style={{height: '80%'}}alt =""/>
                 </div>
                        
                         
-                    <div className="justify-content-center" style={{border: '1px solid black',}} >
+                    <div className="justify-content-center" style={{border: '1px solid black',width: '500px'}} >
                         <h3>Log In With</h3>
                         <button type="button" className="btn btn-outline-dark" onClick={handelLogin}><img src="https://i.ibb.co/bQZmC5Q/google.png" alt="google" border="0" />Continue with google</button>
                         <p>Don't have any Account ? <Link to='/login'>create an account</Link></p>
                     </div>   
             </div>
-
-
-            
-            
+    
         </div>
+       
         
     );
 };

@@ -26,7 +26,7 @@ const NavbarShow = () => {
                         <Nav.Link className="mr-3" ><Link to="/"><span className='text-dark'>Home </span></Link></Nav.Link>
                   
                         <Nav.Link className="mr-3" ><Link to="/"><span className='text-dark'>Our Portfolio</span></Link></Nav.Link>
-                        <Nav.Link className="mr-3"><Link to="/"><span className='text-dark'>Our Team</span></Link></Nav.Link>
+                        <Nav.Link className="mr-3"><Link to="/dashboard"><span className='text-dark'>Dash Board</span></Link></Nav.Link>
                         <Nav.Link className="mr-3"><Link to="/login"><span className='text-dark'>Contact Us</span></Link></Nav.Link>
                         <Button variant="dark"><Link to="/login"><span className='text-white'>Log in</span></Link></Button>
                         </Nav>
