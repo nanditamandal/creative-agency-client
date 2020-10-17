@@ -41,7 +41,7 @@ const Login = () => {
     }
     const checkUser=(user)=>{
         const userEmail =user.email;
-        fetch(`http://localhost:5000/checkUser/${userEmail}`)
+        fetch(`https://blooming-escarpment-00227.herokuapp.com/checkUser/${userEmail}`)
         .then(res=>res.json())
         .then(data=>{
             if(data){

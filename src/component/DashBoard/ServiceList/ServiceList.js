@@ -10,7 +10,7 @@ const ServiceList = () => {
 
     useEffect(()=>{
        
-            fetch(`http://localhost:5000/showOrder/${logInUser.email}`)
+            fetch(`https://blooming-escarpment-00227.herokuapp.com/showOrder/${logInUser.email}`)
             .then(res=>res.json())
             .then(data=>setOrder(data))
        

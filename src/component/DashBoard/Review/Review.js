@@ -9,7 +9,7 @@ const Review = () => {
     const onSubmit = data => {
         const review ={...data, img: logInUser.picture}
     
-        fetch('http://localhost:5000/addReview',{
+        fetch('https://blooming-escarpment-00227.herokuapp.com/addReview',{
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json',
                                 'Accept': 'application/json' },

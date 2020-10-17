@@ -15,7 +15,7 @@ const Order = ( props ) => {
         
         
         const order= {...data, img: img, serviceDetails :details, status: 'pending'}
-        fetch('http://localhost:5000/addOrder',{
+        fetch('https://blooming-escarpment-00227.herokuapp.com/addOrder',{
         method: 'POST',
         headers: { 'Content-Type': 'application/json',
                     'Accept': 'application/json' },

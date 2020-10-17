@@ -10,7 +10,7 @@ const Admin = () => {
     const onSubmit = data => {
 
             console.log(data);
-            fetch('http://localhost:5000/addAdmin',{
+            fetch('https://blooming-escarpment-00227.herokuapp.com/addAdmin',{
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json',
                             'Accept': 'application/json' },

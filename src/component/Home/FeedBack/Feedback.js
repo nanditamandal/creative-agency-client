@@ -5,7 +5,7 @@ import FeedBackDetail from '../FeedBackDetail/FeedBackDetail';
 const Feedback = () => {
     const [feedBack, setFeedBack] =useState();
     useEffect(()=>{
-        fetch(`http://localhost:5000/allReview`)
+        fetch(`https://blooming-escarpment-00227.herokuapp.com/allReview`)
         .then(res=>res.json())
         .then(data=>setFeedBack(data))
     

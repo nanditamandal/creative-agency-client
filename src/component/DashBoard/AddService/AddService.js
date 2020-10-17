@@ -36,7 +36,7 @@ const AddService = () => {
             if(imgUrl != null){
                 sendObject={name: data.name,details: data.details, img : imgUrl}
                 //console.log(sendObject)
-                fetch('http://localhost:5000/addService',{
+                fetch('https://blooming-escarpment-00227.herokuapp.com/addService',{
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json',
                                 'Accept': 'application/json' },
