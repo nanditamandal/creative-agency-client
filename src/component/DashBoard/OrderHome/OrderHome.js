@@ -94,6 +94,12 @@ const OrderHome = () => {
                     </div>
                 </div>
                 <div className="col-md-7 d-flex justify-content-center">
+                    <div>{logInUser.email}
+                        {logInUser.name}
+                        <img src= {logInUser.picture} style={{height: "100px", width:"100px"}} alt=""/>
+                       
+                    
+                    </div>
                     {
                         (pageName === "order") && [(serviceName !== undefined)? <Order service={service}>   </Order>: <div className="p-7">not selected </div>]
                     }

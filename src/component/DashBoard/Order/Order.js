@@ -6,12 +6,9 @@ import { useForm } from "react-hook-form";
 
 const Order = ( props ) => {
     const {img, name, details}=props.service
-    
-   
+
     const [logInUser, setLogInUser]= useContext(UserContext);
  
-
-    
     const { register, handleSubmit, errors, control } = useForm();
     
     const onSubmit = data => {
