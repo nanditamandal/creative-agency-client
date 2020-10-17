@@ -4,24 +4,25 @@ import { UserContext } from '../../../App';
 import { useForm } from "react-hook-form";
 
 
-const Order = (props) => {
+const Order = ( props ) => {
+    const {img, name, details}=props.service
     
-    const {serviceName}=props;
-    console.log(serviceName)
    
     const [logInUser, setLogInUser]= useContext(UserContext);
+ 
 
     
     const { register, handleSubmit, errors, control } = useForm();
-    const onSubmit = data => {
     
-  
-     console.log(data);
-    fetch('http://localhost:5000/addOrder',{
+    const onSubmit = data => {
+        
+        
+        const order= {...data, img: img, serviceDetails :details, status: 'pending'}
+        fetch('http://localhost:5000/addOrder',{
         method: 'POST',
         headers: { 'Content-Type': 'application/json',
                     'Accept': 'application/json' },
-        body: JSON.stringify(data)
+        body: JSON.stringify(order)
     })
     .then(res=>res.json())
     .then(data=>{
@@ -43,7 +44,8 @@ const Order = (props) => {
                            <input name="email" className="form-control"  ref={register} defaultValue={logInUser.email}/>
                        </div>
                        <div className="form-group">
-                           <input  name="work"className="form-control"  ref={register} defaultValue={serviceName}/>
+                           
+                           <input  name="serviceName" className="form-control" defaultValue={name} ref={register}  />
                        </div>
                        <div className="form-group">
                            <textarea name="message" className="form-control"  ref={register}  id="" cols="30" rows="10" placeholder="Message *" ></textarea>
@@ -51,7 +53,7 @@ const Order = (props) => {
                        <div className="form-group">
                            <input name="price" className="form-control"  ref={register({ required: true })} placeholder="price"/>
                            
-                           <input type="file" name="picture" ref={register} />
+                           <input type="file" name="file" ref={register} />
                        </div>
                     
                        <div className="form-group text-center">

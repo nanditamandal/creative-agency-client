@@ -1,48 +1,30 @@
-import React from 'react';
-import customer1 from '../../../images/customer-1.png';
-import customer2 from '../../../images/customer-2.png';
-import customer3 from '../../../images/customer-3.png';
+import React, { useEffect, useState } from 'react';
 import FeedBackDetail from '../FeedBackDetail/FeedBackDetail';
 
 
-const feedBack = [
-    {
-        name : 'Nandita',
-        description: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ea, placeat totam laborum maiores, esse assumenda porro error natus sit ipsam.        ',
-        designation :'CEO Manpol',
-        img: customer1
-        
-    },
-    {
-        name : 'Nandita',
-        description: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ea, placeat totam laborum maiores, esse assumenda porro error natus sit ipsam.        ',
-        designation :'CEO Manpol',
-        img: customer2
-        
-    },
-    {
-        name : 'Nandita',
-        description: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ea, placeat totam laborum maiores, esse assumenda porro error natus sit ipsam.        ',
-        designation :'CEO Manpol',
-        img: customer3
-        
-    }
-]
-
 const Feedback = () => {
+    const [feedBack, setFeedBack] =useState();
+    useEffect(()=>{
+        fetch(`http://localhost:5000/allReview`)
+        .then(res=>res.json())
+        .then(data=>setFeedBack(data))
+    
+    }, [])
     return (
-        <section className="blogs my-5">
-           <div className="container">
+        <section className="blogs mt-5">
+          
                <div className="section-header text-center">
-                    <h5 className="text-primary text-uppercase">our blog</h5>
-                    <h1>From Our Blog News</h1>
+                  
+                    <h1>Clients <span style={{color: '#1CC7C1'}}>Feedback</span></h1>
                </div>
-               <div className="card-deck mt-5">
-                    {
-                        feedBack.map(back => <FeedBackDetail back={back} ></FeedBackDetail>)
-                    }
+               <div className="d-flex justify-content-center">
+                    <div className="w-75 row mt-5 pt-5">
+                            {
+                                feedBack  && feedBack.map(back => <FeedBackDetail back={back} ></FeedBackDetail>)
+                            }
+                    </div>
                </div>
-           </div>
+        
        </section>
     );
 };

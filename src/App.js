@@ -13,8 +13,7 @@ import Login from './component/Login/Login';
 
 import OrderHome from './component/DashBoard/OrderHome/OrderHome';
 import PrivateRoute from './component/Login/PrivateRoute';
-import Admin from './component/DashBoard/Admin/Admin';
-import AddService from './component/DashBoard/AddService/AddService';
+
 
 export const UserContext = createContext();
 function App() {
@@ -39,13 +38,9 @@ function App() {
                     <Route path="/login">
                       <Login></Login>
                     </Route>
-                    <Route path="/addService">
-                      <AddService></AddService>
-                    </Route>
-                    
-                    
-
-                      
+                    <PrivateRoute path="/dashboard">
+                      <OrderHome></OrderHome>
+                    </PrivateRoute>      
                 </Switch>
       </Router>
       </UserContext.Provider>

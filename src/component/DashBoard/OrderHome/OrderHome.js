@@ -1,9 +1,7 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 
 import {
   BrowserRouter as Router,
-  Switch,
-  Route,
   useParams
 } from "react-router-dom";
 import { Link } from 'react-router-dom';
@@ -22,18 +20,23 @@ import AddService from '../AddService/AddService';
 import AllService from '../AllService/AllService';
 
 const OrderHome = () => {
-
-
     let page;
     const {serviceName} =useParams();
+    console.log(serviceName)
     const [pageName, setPageName]= useState(' ');
+    const [services, setServices]= useState();
 
     const [logInUser, setLogInUser]= useContext(UserContext);
    
-       
-     
-        console.log(serviceName)
-            
+    useEffect(()=>{
+        fetch("http://localhost:5000/allService")
+        .then(res=>res.json())
+        .then(data=>setServices(data))
+    
+    }, [])
+    const service =services &&  services.find(service => service.name === serviceName);
+    
+      
         
     return (
         <section>
@@ -91,9 +94,10 @@ const OrderHome = () => {
                     </div>
                 </div>
                 <div className="col-md-7 d-flex justify-content-center">
-                  {
-                      (pageName==="order") && <Order serviceName={serviceName}></Order>
-                  }
+                    {
+                        (pageName === "order") && [(serviceName !== undefined)? <Order service={service}>   </Order>: <div className="p-7">not selected </div>]
+                    }
+                  
                    {
                       (pageName==="service") && <ServiceList ></ServiceList>
                   }

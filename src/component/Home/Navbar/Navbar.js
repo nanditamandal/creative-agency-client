@@ -1,10 +1,11 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import logo from '../../../images/logos/logo.png';
 
 const Navbar = () => {
     return (
-        <nav className="navbar navbar-expand-lg navbar-light ">
-                    <a className="navbar-brand" href=""><img src={logo} alt="" style={{height:"30px"}}/></a>
+        <nav className="navbar navbar-expand-lg navbar-light">
+                    <a className="navbar-brand" ><img src={logo} alt="" style={{height:"30px"}}/></a>
                     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
@@ -12,24 +13,26 @@ const Navbar = () => {
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav ml-auto">
                         <li className="nav-item active">
-                            <a className="nav-link ml-5" href="#">Home <span className="sr-only">(current)</span></a>
+                            <Link className="nav-link ml-5 text-white" to="/">Home</Link>
+                            {/* <a className="nav-link ml-5" href="">Home <span className="sr-only">(current)</span></a> */}
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link ml-5" href="#">About</a>
+                            <Link className="nav-link ml-5 text-white" to="/login">Log In</Link>
+                            
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link ml-5" href="#">Dental Services</a>
+                        <Link className="nav-link ml-5 text-white" to="/dashboard">DashBoard</Link>
+                            
                         </li>
-                        <li className="nav-item">
-                            <a className="nav-link ml-5 text-white" href="#">Reviews</a>
-                        </li>
-                        <li className="nav-item">
-                            <a className="nav-link ml-5 text-white" href="#">Blog</a>
-                        </li>
+                        
                         <li className="nav-item">
                             <a className="nav-link ml-5 text-white" href="#">Contact Us</a>
                         </li>
-                        <li className="nav-item"> <button class="btn btn-dark my-2 my-sm-0" type="submit">Search</button></li>
+                        <li className="nav-item">
+                             <button class="btn btn-dark my-2 my-sm-0" >
+                             <Link className="nav-link  text-white" to="/login">Log In</Link>
+                             </button>
+                        </li>
 
                         </ul>
                         

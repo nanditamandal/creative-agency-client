@@ -6,21 +6,48 @@ const ServiceList = () => {
     const [order, setOrder]= useState([]);
     
 
-    useEffect(()=>{
-        fetch(`http://localhost:5000/showOrder/${logInUser.email}`)
-        .then(res=>res.json())
-        .then(data=>setOrder(data))
     
-    }, [ logInUser])
+
+    useEffect(()=>{
+       
+            fetch(`http://localhost:5000/showOrder/${logInUser.email}`)
+            .then(res=>res.json())
+            .then(data=>setOrder(data))
+       
+    },[logInUser])
 
     console.log(order);
 
+    
+
+   
+       
+       
+
     return (
         
-           <div>
+           <div className="row">
                {
-              order && order.map(od=> <div>{od.companyName}</div>)
-             }
+                 order && order.map(od=> 
+                    
+            
+                 <div className="col-md-5 mb-5 text-center ">
+         
+                    <div className="card service"  >
+                        <div className="card-body ">
+                            <img style={{height: '50px'}} src={od.img} alt="" />
+                           
+                            <button className="btn btn-outline-secondary" >{od.status}</button>
+                            <h5 className="card-title">{od.serviceName}</h5>
+                        
+                            <p className="card-text">{od.serviceDetails}</p>
+                            
+                        </div>
+                    </div>
+                    </div>
+              
+                    )
+               }
 
            </div>
                
