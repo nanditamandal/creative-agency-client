@@ -2,12 +2,13 @@ import React, { useContext, useEffect, useState } from 'react';
 
 import {
   BrowserRouter as Router,
+    useHistory,
   useParams
 } from "react-router-dom";
 import { Link } from 'react-router-dom';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCommentAlt, faSignOutAlt, faShoppingCart, faTaxi, faUserPlus, faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faCommentAlt,faHouseDamage, faSignOutAlt, faShoppingCart, faTaxi, faUserPlus, faPlus } from '@fortawesome/free-solid-svg-icons';
 
 import logo from '../../../images/logos/logo.png';
 import Order from '../Order/Order';
@@ -20,13 +21,14 @@ import AddService from '../AddService/AddService';
 import AllService from '../AllService/AllService';
 
 const OrderHome = () => {
-    let page;
+
     const {serviceName} =useParams();
     console.log(serviceName)
     const [pageName, setPageName]= useState(' ');
     const [services, setServices]= useState();
 
     const [logInUser, setLogInUser]= useContext(UserContext);
+    const history=useHistory();
    
     useEffect(()=>{
         fetch("https://blooming-escarpment-00227.herokuapp.com/allService")
@@ -36,7 +38,13 @@ const OrderHome = () => {
     }, [])
     const service =services &&  services.find(service => service.name === serviceName);
     
+      const handelLogOut=()=>{
       
+          setLogInUser({
+              
+          })
+          history.push("/")
+      }
         
     return (
         <section>
@@ -89,7 +97,10 @@ const OrderHome = () => {
                         </ul>
                         }
                         <div >
-                            <Link to="/" className="text-dark"><FontAwesomeIcon icon={faSignOutAlt} /> <span>Logout</span></Link>
+                            <Link to="/" className="text-dark"><FontAwesomeIcon icon={faHouseDamage} /> <span>Home</span></Link>
+                        </div>
+                        <div >
+                            <Link onClick={handelLogOut} className="text-dark"><FontAwesomeIcon icon={faSignOutAlt} /> <span>Logout</span></Link>
                         </div>
                     </div>
                 </div>
@@ -101,7 +112,7 @@ const OrderHome = () => {
                     
                     </div>
                     {
-                        (pageName === "order") && [(serviceName !== undefined)? <Order service={service}>   </Order>: <div className="p-7">not selected </div>]
+                        (pageName === "order") && [(serviceName !== undefined)? <Order service={service}>   </Order>: <div className="mt-5 pt-5 text-danger text-justify">You not select any service. </div>]
                     }
                   
                    {

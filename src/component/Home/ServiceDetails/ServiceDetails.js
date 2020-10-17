@@ -11,9 +11,6 @@ const ServiceDetails = ({ service }) => {
     return (
         <div onClick ={handelClick} className="col-md-4 mb-5 text-center ">
          
-            {/* <img style={{height: '50px'}} src={service.img} alt="" />
-            <h5 className="mt-3 mb-3">{service.name}</h5>
-            <p className="text-secondary mt-3 mb-3">{service.details}</p> */}
             <div className="card service"  >
                 <div className="card-body ">
                     <img style={{height: '50px'}} src={service.img} alt="" />

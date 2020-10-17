@@ -30,12 +30,9 @@ const Login = () => {
           const user = {  name, email, picture }
           checkUser(user);
          
-          //storeAuthToken();
-   
-          
         }).catch(function (error) {
           const errorMessage = error.message;
-          console.log(errorMessage);
+          
         });
 
     }
@@ -47,7 +44,6 @@ const Login = () => {
             if(data){
                 user={...user, userType: 'admin'}
                 setLogInUser(user);
-                console.log(user)
                 history.replace(from);
             }
             else{
@@ -61,19 +57,19 @@ const Login = () => {
       
 
     }
-    const storeAuthToken=()=>{
-        firebase.auth().currentUser.getIdToken( true)
-        .then(function(idToken) {
-            sessionStorage.setItem('token', idToken);
+    // const storeAuthToken=()=>{
+    //     firebase.auth().currentUser.getIdToken( true)
+    //     .then(function(idToken) {
+    //         sessionStorage.setItem('token', idToken);
            
-            console.log(idToken);
+    //         console.log(idToken);
             
-          })
-          .catch(function(error) {
+    //       })
+    //       .catch(function(error) {
            
-          });
+    //       });
 
-    }
+    // }
 
     return (
         <div className="login-page container">
