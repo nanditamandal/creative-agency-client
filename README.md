@@ -10,9 +10,11 @@
 -	Admin can add another admin, change order status and add service. Customer can make orders, see their own orders and make review. 
 
 **Technology**
-- React JS    - Bootstrap 4
-- MongoDB     - Firebase
+- React JS    
 - Nodejs
+- Bootstrap 4
+- MongoDB
+- Firebase
  
 
 
